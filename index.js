@@ -5,20 +5,18 @@
 // Customize these paths to your own images
 const images = [
   './assets/image-content/image-1.png',
-  './assets/image-content/image-2.png',
-  './assets/image-content/image-3.png',
-  './assets/image-content/image-4.png',
-  './assets/image-content/image-5.png',
-  './assets/image-content/image-6.png'
+  './assets/image-content/image-2.png'
 ];
 
 // =============================================
 // STEP 2: Reference HTML elements 
 // =============================================
 // Connect to the elements we need to change
+const launchMessage = document.querySelector('.launch-message');// Launch message
 const imageContent = document.querySelector('.image-content');  // Image container
 const mainButton = document.getElementById('main-button');      // Image switch button
 const finalMessage = document.querySelector('.final-message');  // Final message
+const container = document.querySelector('.container');        // Container
 
 // =============================================
 // STEP 3: Track what image we're at 
@@ -69,7 +67,12 @@ mainButton.addEventListener('click', () => {
   
   // Once at the last image, show the final message and hide the button 
   if (currentIndex === images.length - 1) {
-    mainButton.style.display = 'none';
+    //mainButton.style.display = 'none';
+    launchMessage.style.display = 'none';
     finalMessage.style.display = 'block';
   }
+
+  mainButton.addEventListener('click', () => {
+    container.style.display = 'none';
+  });
 });
